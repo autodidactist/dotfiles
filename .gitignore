@@ -1,0 +1,37 @@
+# Ignore everything
+*
+.config/nvim/plugged/*
+.config/mpv/watch_later/*
+
+# # But not these files...
+!.gitignore
+!.doom.d/*
+!.git/*
+!.bashrc
+!.stow-local-ignore
+!.zprofile
+!./local/bin/*
+!./dwm/*
+!./dwmblocks/*
+!install.sh
+!README.md
+!00-repository-main.conf
+!30-touchpad.conf
+!config/alacritty/*
+!config/dunst/*
+!config/kitty/*
+!config/lf/*
+# !config/mpv/*
+!config/newsboat/*
+!config/nvim/*
+!config/obs-studio/*
+!config/ranger/*
+!config/sxhkd/*
+!config/tmux/*
+!config/X11/*
+!config/zathura/*
+!config/zsh/*
+!config/aliasrc
+!config/picom.conf
+!config/starship.toml
+!config/wall.jpg
