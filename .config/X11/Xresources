@@ -1,0 +1,139 @@
+/* *.alpha:1 */
+/* *.alpha:.90 */
+/* *.alpha:0.88 */
+/* *.alpha:0.85 */
+
+Xft.dpi:       96
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.autohint:  true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+/* *.cursorColor:  #51afef */
+
+/* *fadeColor: #4C566A */
+
+
+/* ! black dark/light */
+/* *color0: 			  #3c3836 */
+/* *color0: 			  #282828 */
+/* *color8:                          #928374 */
+/* *color1:                          #cc241d */
+/* *color9:                          #fb4934 */
+/* *color2:                          #98971a */
+/* *color10:                         #b8bb26 */
+/* *color3:                          #d79921 */
+/* *color11:                         #fabd2f */
+/* *color4:                          #458588 */
+/* *color12:                         #83a598 */
+/* *color5:                          #b16286 */
+/* *color13:                         #d3869b */
+/* *color6:                          #689d6a */
+/* *color14:                         #8ec07c */
+/* *color7:                          #a89984 */
+/* *color15:                         #ebdbb2 */
+/* *color16:			  #ac2b1a */
+/* *color256: 			  #1d2021 */
+/* *color257: 			  #ebdbb2 */
+
+*fading:                          8
+/* cursorColor:                     #1ABB9B */
+/* *pointerColorBackground:          #2B2C2B */
+/* *pointerColorForeground:          #16A085 */
+*Xcursor.theme:bloom-Cursor
+* Xcursor.size:                     0
+
+/* *cursorColor:darkorange */
+
+
+
+/* *.background: #282828 */
+/* *.background: #1d2021 */
+/* *.background: #1d1f21 	 /1* Nice Dark 2 *1/ */
+/* *.background: 	#1a292d */
+/* *.foreground: #ebdbb2 */
+/* color1:#717B84 */
+ /* DWM */
+/* dwm.color0:#444444 	     /1* normborder color */
+/* dwm.color1: #770000         /1* selbordercolor *1/ */
+
+/* dwm.color1: #B98B6D */
+dwm.color1: #7D807F
+/* dwm.color1:  #9A6950 */
+
+
+/* dwm.color5: #BD93F9 */
+/* dwm.color5: #9257aa */
+/* dwm.color4:  #1d1100 */
+dwm.color4:  #FAFAFA
+dwm.color3: #FAFAFA 	 		/* norm bg color
+			     /* norm bg color */
+dwm.color5: 	#444
+dwm.color2: #1d1100     /* norm fg color */
+/* dwm.color2: #0e1021 */
+
+
+
+
+
+/* dwm.color1:#1d1100  */
+
+
+
+/* #define nord0 #2E3440 */
+/* #define nord1 #3B4252 */
+/* #define nord2 #434C5E */
+/* #define nord3 #4C566A */
+/* #define nord4 #D8DEE9 */
+/* #define nord5 #E5E9F0 */
+/* #define nord6 #ECEFF4 */
+/* #define nord7 #8FBCBB */
+/* #define nord8 #88C0D0 */
+/* #define nord9 #81A1C1 */
+/* #define nord10 #5E81AC */
+/* #define nord11 #BF616A */
+/* #define nord12 #D08770 */
+/* #define nord13 #EBCB8B */
+/* #define nord14 #A3BE8C */
+/* #define nord15 #B48EAD */
+
+/* *.foreground:   nord4 */
+/* *.background:   nord0 */
+/* /1* *fading: 35 *1/ */
+/* *fadeColor: nord3 */
+
+/* *.color0: nord1 */
+/* *.color1: nord11 */
+/* *.color2: nord14 */
+/* *.color3: nord13 */
+/* *.color4: nord9 */
+/* *.color5: nord15 */
+/* *.color6: nord8 */
+/* *.color7: nord5 */
+/* *.color8: nord3 */
+/* *.color9: nord11 */
+/* *.color10: nord14 */
+/* *.color11: nord13 */
+/* *.color12: nord9 */
+/* *.color13: nord15 */
+/* *.color14: nord7 */
+/* *.color15: nord6 */
+
+
+*color0:             #2e3436
+*color8:             #6e706b
+*color1:             #cc0000
+*color9:             #ef2929
+*color2:             #4e9a06
+*color10:            #8ae234
+*color3:             #edd400
+*color11:            #fce94f
+*color4:             #3465a4
+*color12:            #729fcf
+*color5:             #92659a
+*color13:            #c19fbe
+*color6:             #07c7ca
+*color14:            #63e9e9
+*color7:             #d3d7cf
+*color15:            #eeeeec

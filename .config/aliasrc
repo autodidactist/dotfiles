@@ -1,0 +1,5 @@
+alias \
+vi=nvim \
+ni=/home/shahid/opt/nvui-linux-x64/bin/nvui \
+brave=/home/shahid/opt/brave/brave \
+xr=xbps-install -R binpkgs \

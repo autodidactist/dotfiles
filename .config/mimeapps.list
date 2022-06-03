@@ -1,0 +1,11 @@
+[Default Applications]
+image/webp=sxiv.desktop
+application/pdf=org.gnome.Evince.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-AIYUK1.desktop
+x-scheme-handler/sgnl=signal.desktop
+x-scheme-handler/signalcaptcha=signal.desktop
+
+[Added Associations]
+image/webp=sxiv.desktop;
+application/pdf=org.gnome.Evince.desktop;org.zealdocs.Zeal.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-AIYUK1.desktop;
