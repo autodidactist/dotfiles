@@ -1,0 +1,1 @@
+disown - alternative to nohup.
