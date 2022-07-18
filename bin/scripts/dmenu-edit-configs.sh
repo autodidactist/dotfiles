@@ -19,6 +19,7 @@ fonts
 herbstluftwm
 goneovim
 i3
+install.sh
 neovim
 newsboat
 mpv
@@ -218,7 +219,10 @@ case "$FILE" in
 			FILE="$HOME/.goneovim/setting.toml"
 			;;
 		kitty)
-			FILE="/home/shahid/dotfiles/.config/kitty/kitty.conf"
+			FILE="$HOME/dotfiles/.config/kitty/kitty.conf"
+			;;
+	 install.sh)
+			FILE="$HOME/dotfiles/install.sh"
 			;;
 	*)
 		exit 1

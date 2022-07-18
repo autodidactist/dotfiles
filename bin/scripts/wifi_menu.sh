@@ -4,9 +4,9 @@ ANS="$(printf "ON\nOFF" | dmenu -i -fn "mono-14" -p "$1" -nb  "#1d1100"  -sb "#b
 
 case $ANS in
 	"ON"|$NULL)
-		 wifi on
+	sudo	 wifi on
 		;;
 	"OFF")
-		 wifi off
+	 sudo wifi off
 		;;
 esac

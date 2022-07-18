@@ -100,7 +100,7 @@ Wikipedia)
 	 cd $wiki && serve  9999 wikipedia_en_all_maxi_2021-12.zim
 	 ;;
 Wikipedia-zim)
-	 cd $wiki && python server.py & notify-send "Wikipedia -> localhost:8888" 
+	 killport 8888; cd $wiki && python serve.py & notify-send "Wikipedia -> localhost:8888" ; echo "localhost:8888" | copy ;
 	 ;;
 Wikibooks)
 	 cd $wiki && serve 7777 wikibooks_en_all_maxi_2021-03.zim
