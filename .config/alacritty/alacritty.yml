@@ -2,19 +2,19 @@ live_config_reload: true
 font:
   normal:
     # family: SauceCodePro Nerd Font
-    family: Iosevka
+    # family: Iosevka 
     # family: DejaVu Sans Mono
     # family: Ubuntu Mono
     # family: Droid Sans Mono
     # family: JetBrains Mono
     # family: Courier Prime Code
     # family: liberation mono
-    # family: SF Mono
+    family: SF Mono
     # family: Consolas NF
     style: Regular
 
-  # size: 10
-  size: 11
+  size: 10
+  # size: 11
 
 # # Colors (Gruvbox Material Dark Medium)
 # colors:

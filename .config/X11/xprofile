@@ -13,6 +13,9 @@ dwmblocks &
 pipewire &
 pipewire-pulse &
 pipewire-media-session &
-bluetooth off &
-wifi off &
-#emacs --daemon &
+sudo wifi off &
+sudo bluetooth off &
+# sudo mkdir /run/user/1000 &
+sudo chown shahid -R /run/user/* &
+sudo hwclock --hctosys &
+# emacs --daemon &

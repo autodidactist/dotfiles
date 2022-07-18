@@ -267,4 +267,4 @@ eval $(opam env)
 
 export XDG_RUNTIME_DIR=/run/user/$UID
 export HARDWARECLOCK=localtime
-eval $(starship init zsh)
+# eval $(starship init zsh)

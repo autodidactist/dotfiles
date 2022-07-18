@@ -13,34 +13,38 @@ call plug#begin('~/.config/nvim/plugged')
 "Lua Plugin
 " Plug 'norcalli/snippets.nvim'
 Plug 'honza/vim-snippets'
-Plug 'dcampos/nvim-snippy'
-Plug 'ziglang/zig.vim'
+" Plug 'dcampos/nvim-snippy'
+" Plug 'ziglang/zig.vim'
 Plug 'whonore/Coqtail' 
+Plug 'bratpeki/truedark-vim'
+Plug 'lifepillar/vim-colortemplate'
+Plug 'mtglsk/mushroom'
 
 "Lean required
-Plug 'Julian/lean.nvim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/plenary.nvim'
+" Plug 'Julian/lean.nvim'
+" Plug 'neovim/nvim-lspconfig'
+" Plug 'nvim-lua/plenary.nvim'
 
 Plug 'drzel/vim-gui-zoom'
 " Plug 'ollykel/v-vim'
 " Plug 'karb94/neoscroll.nvim'
 Plug 'Mofiqul/vscode.nvim'
 Plug 'daschw/leaf.nvim'
-Plug 'sainnhe/vim-color-forest-night'
+Plug 'sainnhe/gruvbox-material'
+" Plug 'sainnhe/vim-color-forest-night'
 "Monochromatic Colors
 " Snippet
 " Plug 'lervag/vimtex'
 " Plug 'vim-scripts/fnaqevan'
 Plug 'srcery-colors/srcery-vim'
 " Plug 'vivien/vim-linux-coding-style'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'junegunn/vim-easy-align'
-Plug 'agude/vim-eldar'
-Plug 'fedorenchik/fasm.vim'
-Plug 'arzg/vim-plan9'
-Plug 'plan9-for-vimspace/acme-colors'
-Plug 'jhlgns/naysayer88.vim'
+" Plug 'dhruvasagar/vim-table-mode'
+" Plug 'junegunn/vim-easy-align'
+" Plug 'agude/vim-eldar'
+" Plug 'fedorenchik/fasm.vim'
+" Plug 'arzg/vim-plan9'
+" Plug 'plan9-for-vimspace/acme-colors'
+" Plug 'jhlgns/naysayer88.vim'
 
 " requires
 Plug 'sheerun/vim-polyglot'
@@ -49,7 +53,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'tanvirtin/monokai.nvim'
+" Plug 'tanvirtin/monokai.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'phanviet/vim-monokai-pro'
 
@@ -78,10 +82,10 @@ Plug 'elixir-editors/vim-elixir'
 "Golang
 " Plug 'AndrewRadev/splitjoin.vim'
 "======================================================================
-Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'RyanMillerC/better-vim-tmux-resizer'
-Plug 'neovimhaskell/haskell-vim'
+" Plug 'neovimhaskell/haskell-vim'
 Plug 'tpope/vim-surround'
 "Plug 'dpelle/vim-LanguageTool'
 "Plug 'jeetsukumaran/vim-pythonsense'
@@ -851,12 +855,14 @@ nmap <silent> <C-t> : hi normal guibg=None \| hi linenr guibg=None <CR>
 nmap <silent><c-=> :ZoomIn<CR>
 nmap <silent><c--> :ZoomOut<CR>
 
+nmap <silent><A-S-k> :ZoomIn<CR>
+nmap <silent><A-S-j> :ZoomOut<CR>
 
-" set guifont=SF\ Mono:h14
+" set guifont=SF\ Mono:h11
 " set guifont=DroidSansMono\ Nerd\ Font:h12
 " set guifont=Fira\ Code\:h11
-" set guifont=Consolas\ NF\:h8
-set guifont=Iosevka\ Nerd\ Font\ Mono\:h12
+" set guifont=Consolas\ NF\:h10
+set guifont=Iosevka:h12
 
 " For dark theme
 let g:vscode_style = "dark"
@@ -868,8 +874,9 @@ let g:vscode_italic_comment = 1
 let g:vscode_disable_nvimtree_bg = v:true
 colorscheme gruvbox
 
-nmap <silent> <C-n> : colorscheme vscode <CR>
+nmap <silent> <C-n> : colorscheme naysayer88 <CR>
+nmap <silent> <C-p> : hi Normal guibg=#000000 <bar> hi LineNR guibg=#000000 <CR>
 
-
+nmap <silent> <C-o> : hi Normal guibg=#1d1d1d <bar> hi LineNR guibg=#1d1d1d <CR>
 
 " lua require('neoscroll').setup()
