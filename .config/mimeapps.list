@@ -5,6 +5,7 @@ x-scheme-handler/tg=userapp-Telegram Desktop-AIYUK1.desktop
 x-scheme-handler/sgnl=signal.desktop
 x-scheme-handler/signalcaptcha=signal.desktop
 video/webm=mpv.desktop
+x-scheme-handler/mpv=mpv-handler.desktop
 
 [Added Associations]
 image/webp=sxiv.desktop;

@@ -1,5 +1,0 @@
-#!/bin/sh
-
-file=$(readlink -f "$1")
-dir=$(dirname "$file")
-rm $dir/*[.o,.hi,.cmi,.cmx]

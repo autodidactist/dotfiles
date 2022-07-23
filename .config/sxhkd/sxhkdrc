@@ -9,8 +9,6 @@ super + p
 	# mpc toggle
 #/l super + e
 # 	prompt "Exit the Session " "killall dwm"
-super + c
-	exec /home/shahid/opt/brave/brave
 super + slash
 	alacritty -e nvim
 # super + backslash
@@ -44,15 +42,19 @@ super + v
 alt + super
 	alacritty
 alt + d
-	t=$(date -u); notify-send "📅 ${t}"
+	t=$(date  "+%Y %b %d %a %I:%M%p"); notify-send "📅 ${t}"
 # super + u
 # 	xrdb Xresources && pkill -SIGTRAP $(dwmbar)
 super + Print
 	 shot.sh -a
 alt + space
 	 xset r rate 300 50 && setxkbmap -option caps:escape ; setxkbmap -option print:print && setxkbmap -option caps:swapescape
-alt + p
+# alt + p
+	# pidof picom && pkill picom || picom -b
+
+alt + shift + p
 	pidof picom && pkill picom || picom -b
+	# pidof picom && killall picom || (picom --experimental-backends -b && notify-send "Blur Enabled")
 	# pidof picom && pkill picom || picom --config ~/.config/picom_no_blur.conf -b
 
 # alt + j
@@ -142,8 +144,6 @@ super + shift + w
 	dmenu-edit-configs.sh
 # alt + p
 # 	pidof polybar && pkill polybar || pb
-alt + shift + p
-	pidof picom && killall picom || (picom --experimental-backends -b && notify-send "Blur Enabled")
 alt + m
 	cmop
 alt + shift + m
@@ -154,8 +154,6 @@ super + shift + x
 	alacritty -e nvim ~/.xprofile
 alt + e
 	zathura ~/Books/Books/Computer_science_books/Languages/Python/automatetheboringstuffwithpython_new.pdf
-alt + shift + l
-	wiki-local-pages
 # super + r
 # 		cd "`xcwd`" &&  _START_LFCD=1 alacritty
 	# st -e lfrun
@@ -177,8 +175,10 @@ alt + shift + n
 # alt + n
 # 	killall redshift;sleep 3;redshift -l 13.10:80.28 -t 5333:4600 -g 1.000 && notify-send " Night Mode ON"
 alt + l
- betterlockscreen  -l --blur 
+ betterlockscreen   -l --blur 
 
+alt + shift + l
+ betterlockscreen  -u ~/Videos/wall_lock.jpg -l --blur 
 # alt + n
 # 	night_mode.sh
 alt + m

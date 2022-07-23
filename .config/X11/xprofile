@@ -15,7 +15,7 @@ pipewire-pulse &
 pipewire-media-session &
 sudo wifi off &
 sudo bluetooth off &
-# sudo mkdir /run/user/1000 &
+sudo mkdir /run/user/1000 &
 sudo chown shahid -R /run/user/* &
 sudo hwclock --hctosys &
 # emacs --daemon &

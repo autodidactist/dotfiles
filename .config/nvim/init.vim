@@ -11,9 +11,11 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 "Lua Plugin
-" Plug 'norcalli/snippets.nvim'
+
+Plug 'norcalli/snippets.nvim'
 Plug 'honza/vim-snippets'
-" Plug 'dcampos/nvim-snippy'
+Plug 'dcampos/nvim-snippy'
+
 " Plug 'ziglang/zig.vim'
 Plug 'whonore/Coqtail' 
 Plug 'bratpeki/truedark-vim'
@@ -75,7 +77,7 @@ Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'machakann/vim-sandwich'
 "Plug 'gf3/peg.vim'
 " Plug 'jkramer/vim-checkbox'
-" Plug 'vim-pandoc/vim-rmarkdown'
+Plug 'vim-pandoc/vim-rmarkdown'
 " Plug 'plasticboy/vim-markdown'
 Plug 'gioele/vim-autoswap'
 Plug 'elixir-editors/vim-elixir'
@@ -223,7 +225,7 @@ call plug#end()
 	filetype plugin on
 
 	syntax on
-	" set expandtab
+	set expandtab
 	set encoding=utf-8
 	set number relativenumber
 	" set cursorline
@@ -482,11 +484,11 @@ nnoremap <A-8> 8gt
 nnoremap <A-9> 9gt
 nnoremap <A-0> 10gt
 
-" jump to next placeholder
-let g:coc_snippet_next = '<c-j>'
+" " jump to next placeholder
+" let g:coc_snippet_next = '<c-j>'
 
-" jump to previous placeholder
-let g:coc_snippet_prev = '<c-k>'
+" " jump to previous placeholder
+" let g:coc_snippet_prev = '<c-k>'
 
 
 
@@ -754,7 +756,7 @@ let g:eldar_term_text        = "White"
 let g:eldar_term_background  = "Black"
 
 
-let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<c-b>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -833,13 +835,6 @@ endfor
 endfunction
 
 
-"Ultisnip
-" let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/UltiSnips']
-" let g:UltiSnipsUsePythonVersion = 3
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
 nnoremap <silent> <leader>d :!mlclear % <CR>
 
 imap <expr> <Tab> snippy#can_expand_or_advance() ? '<Plug>(snippy-expand-or-advance)' : '<Tab>'
@@ -847,6 +842,7 @@ imap <expr> <S-Tab> snippy#can_jump(-1) ? '<Plug>(snippy-previous)' : '<S-Tab>'
 smap <expr> <Tab> snippy#can_jump(1) ? '<Plug>(snippy-next)' : '<Tab>'
 smap <expr> <S-Tab> snippy#can_jump(-1) ? '<Plug>(snippy-previous)' : '<S-Tab>'
 xmap <Tab> <Plug>(snippy-cut-text)
+
 
 
 " nmap <silent> <C-t> : colorscheme acme \| hi Normal guibg=#F5EEC2 guifg=#3A3845 \| hi LineNr guibg=#F5EEC2<CR>
@@ -858,10 +854,6 @@ nmap <silent><c--> :ZoomOut<CR>
 nmap <silent><A-S-k> :ZoomIn<CR>
 nmap <silent><A-S-j> :ZoomOut<CR>
 
-" set guifont=SF\ Mono:h11
-" set guifont=DroidSansMono\ Nerd\ Font:h12
-" set guifont=Fira\ Code\:h11
-" set guifont=Consolas\ NF\:h10
 set guifont=Iosevka:h12
 
 " For dark theme

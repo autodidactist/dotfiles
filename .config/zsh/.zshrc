@@ -265,6 +265,6 @@ export JAVA_HOME="/usr/lib/jvm/openjdk17"
 # alias java='java "$_SILENT_JAVA_OPTIONS"'
 eval $(opam env)
 
-export XDG_RUNTIME_DIR=/run/user/$UID
+# export XDG_RUNTIME_DIR=/run/user/$UID
 export HARDWARECLOCK=localtime
 # eval $(starship init zsh)
