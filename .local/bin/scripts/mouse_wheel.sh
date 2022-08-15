@@ -28,7 +28,13 @@ fi
 
 CURRENT_VALUE=$(awk -F 'Button4,' '{print $2}' ~/.imwheelrc)
 
-NEW_VALUE=$(zenity --scale --window-icon=info --ok-label=Apply --title="Wheelies" --text "Mouse wheel speed:" --min-value=1 --max-value=100 --value="$CURRENT_VALUE" --step 1)
+# notify-send "CURRENT_VALUE:$CURRENT_VALUE"
+
+# NEW_VALUE=$(zenity --scale --window-icon=info --ok-label=Apply --title="Wheelies" --text "Mouse wheel speed:" --min-value=1 --max-value=100 --value="$CURRENT_VALUE" --step 1)
+
+NEW_VALUE=$(dmenu -i -fn 'mono-16' -p "Mouse:")
+
+# notify-send "NEW_VALUE:$NEW_VALUE"
 
 if [ "$NEW_VALUE" == "" ];
 then exit 0
@@ -37,7 +43,7 @@ fi
 sed -i "s/\($TARGET_KEY *Button4, *\).*/\1$NEW_VALUE/" ~/.imwheelrc # find the string Button4, and write new value.
 sed -i "s/\($TARGET_KEY *Button5, *\).*/\1$NEW_VALUE/" ~/.imwheelrc # find the string Button5, and write new value.
 
-cat ~/.imwheelrc
+# cat ~/.imwheelrc
 imwheel -kill
 
 # END OF SCRIPT FILE

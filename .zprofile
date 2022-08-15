@@ -27,7 +27,6 @@ export GOPATH=$HOME/.local/share/go
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/.gtkrc
 # export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
-export PATH="/home/shahid/opt/zig-linux-x86_64-0.9.1:$PATH"
 export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
 export TERMINAL="alacritty"
@@ -38,6 +37,7 @@ export READER="zathura"
 # export QT_SCREEN_SCALE_FACTORS=96
 # export QT_FONT_DPI=96 vym
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$PATH:$(du "$HOME/dotfiles/.local/bin" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 export PATH="/home/shahid/.local/share/cargo/bin:$PATH"
 export PATH="/home/shahid/.mix/escripts/:$PATH"
 export PATH="/home/shahid/anaconda3/bin:$PATH"

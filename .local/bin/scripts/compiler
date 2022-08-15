@@ -9,9 +9,6 @@
 # Note that .tex files which you wish to compile with XeLaTeX should have the
 # string "xelatex" somewhere in a comment/command in the first 5 lines.
 
-# OB_CLEAR=rm *.o *.cmx *.cmo *.cmi
-zapcc="/home/shahid/opt/build/bin/zapcc"
-zapcpp="/home/shahid/opt/build/bin/zapcc++"
 
 file=$(readlink -f "$1")
 dir=${file%/*}
@@ -34,17 +31,22 @@ case "$ext" in
 	# Try to keep these cases in alphabetical order.
 	[0-9]) preconv "$file" | refer -PS -e | groff -mandoc -T pdf > "$base".pdf ;;
 	# c) cc  -std=c11  -g -static -Wall -Wextra -pedantic "$file" -o "$base" && "$base" ;;
-	c) cc  -std=c11  -g -O2 -Wall -Wextra -pedantic "$file" -o "$base" && "$base" ;;
+	c) cc  -std=c11  -g -O2 -Wall -Wextra -pedantic "$file" -o "$base" && "$base" ;
+     rm "$base";;
 	lhs|hs) ghc "$file" -o "$base" && "$base";;
 	# lhs|hs) ghc "$file" && "$base" ;;
 	rs) rustc "$file" -o "$base" && "$base" ;;
-	# -std=gnu++2a --> for GNU Extensions + C++20
-	cpp) g++ -std=c++17 -g  -O2 -Wall -Wextra -pedantic "$file" -o "$base" && "$base" ;;
+	cpp)
+       if [  -e input.txt ] ; then
+          g++ -std=c++17 -g  -O2 -Wall -Wextra "$file" -o "$base" && "$base" <./input.txt > output.txt 
+       else
+          g++ -std=c++17 -g  -O2 -Wall -Wextra "$file" -o "$base" && "$base" ;
+       fi
+          rm "$base"
+       ;;
 	cs) mcs "$file" -o "$base" && mono "$base";;
-	# md) pandoc  "$file"   -o "$base".pdf;;
 	md) pandoc --pdf-engine=xelatex "$file"   -o "$base".pdf;;
 	rmd)Rscript -e "rmarkdown::render('$file')";;
-	# md) groffdown "$file" |  groff  -me -ms -kejpt -Tpdf > "$base".pdf;;
 	d) ldc2 "$file" &&  "$base" ;;
 	# d) dmd  -O -of="$base" "$file" && "$base" ;;
 	fsx) fsharpc  --nologo    "$file" -o "$base"  && mono "$base";;
@@ -60,5 +62,6 @@ case "$ext" in
 	ex|exs)elixir "$file" ;;
 	sent) setsid -f sent "$file" 2>/dev/null ;;
 	tex) pdflatex --latex-engne=xelatex "$file" ;;
+  zig) zig run "$file";;
 	*) sed -n '/^#!/s/^#!//p; q' "$file" | xargs -r -I % "$file" ;;
 esac

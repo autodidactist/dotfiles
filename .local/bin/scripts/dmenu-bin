@@ -5,7 +5,6 @@ cd $HOME/.local/bin/scripts
 FILE=$(ls  | dmenu  -l 20  -fn "mono-14" )
 
 
-#!/bin/bash
 
 # This Script Open the Script in  $DIR in nvim.
 

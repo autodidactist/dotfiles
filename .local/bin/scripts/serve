@@ -27,4 +27,4 @@ case "$ext" in
 
 esac	 
 echo "localhost:$PORT" | copy
-prompt "Open in Luakit?" "luakit localhost:$PORT"
+# prompt "Open in Luakit?" "luakit localhost:$PORT"

@@ -52,7 +52,8 @@ spectrwm
 mpd
 ncmpcpp
 blocks
-lf")
+lf
+zprofile")
 
 FILE=$(echo -e "${options[@]}" | dmenu -i  -fn 'mono-13.2' -p 'Edit config file: ')
 
@@ -224,10 +225,16 @@ case "$FILE" in
 	 install.sh)
 			FILE="$HOME/dotfiles/install.sh"
 			;;
+   zprofile)
+		FILE="$HOME/.config/zsh/.zprofile"
+    ;;
 	*)
 		exit 1
 	;;
 esac
-# $TERMINAL -e nvim "$FILE"
-# alacritty -e nvim "$FILE"
-alacritty -e nvim "$FILE"
+
+   fullPath=$(readlink -f "$FILE")
+   dir=$(dirname $fullPath)
+   cd $dir;
+   alacritty -e nvim "$FILE"
+

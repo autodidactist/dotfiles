@@ -39,7 +39,8 @@ Wikipedia-zim
 Wikipedia
 Wikibooks
 MDN-Docs
-Powertop")
+Powertop
+")
 
 FILE=$(echo -e "${options[@]}" | dmenu -i -fn "mono-14" -p "$1" -nb  "#1d1100"  -sb "#6fa695" -sf "#010101" -nf gray  -p 'Run Scripts:')
 
@@ -120,6 +121,7 @@ Scrot)
 Powertop)
 	 sudo powertop --auto-tune
 	 ;;
+
 *)
 	 exit 1
 	 ;;
