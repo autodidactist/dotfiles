@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -xe
+
 declare options=("alacritty
 bash
 broot
@@ -8,10 +10,12 @@ transmission
 doom.d/config.el
 doom.d/init.el
 doom.d/bindings.el
+doom.d/packages.el
 dmenu
 dunst
 dwm
 dwmblocks
+statusbar
 emacs.d/init.el
 snippets
 kitty
@@ -55,186 +59,201 @@ blocks
 lf
 zprofile")
 
-FILE=$(echo -e "${options[@]}" | dmenu -i  -fn 'mono-13.2' -p 'Edit config file: ')
+FILE=$(echo -e "${options[@]}" | dmenu -i  -fn 'mono-15' -p 'Edit config : ')
 
 case "$FILE" in
 	quit)
 		echo "Program terminated." && exit 1
 	;;
 	alacritty)
-		FILE="$HOME/.config/alacritty/alacritty.yml"
+		FILE_PATH="$HOME/.config/alacritty/alacritty.yml"
 	;;
 	awesome)
-		FILE="$HOME/.config/awesome/rc.lua"
+		FILE_PATH="$HOME/.config/awesome/rc.lua"
 	;;
 	bash)
-		FILE="$HOME/.bashrc"
+		FILE_PATH="$HOME/.bashrc"
 	;;
 	broot)
-		FILE="$HOME/.config/broot/conf.toml"
+		FILE_PATH="$HOME/.config/broot/conf.toml"
 	;;
 	bspwm)
-		FILE="$HOME/.config/bspwm/bspwmrc"
+		FILE_PATH="$HOME/.config/bspwm/bspwmrc"
 	;;
 	compton)
-		FILE="$HOME/.config/compton/compton.conf"
+		FILE_PATH="$HOME/.config/compton/compton.conf"
 	;;
 	doom.d/bindings.el)
-		FILE="$HOME/.doom.d/bindings.el"
+		FILE_PATH="$HOME/.doom.d/bindings.el"
 	;;
 	doom.d/config.el)
-		FILE="$HOME/.doom.d/config.el"
+		FILE_PATH="$HOME/.doom.d/config.el"
+	;;
+doom.d/packages.el)
+		FILE_PATH="$HOME/.doom.d/packages.el"
 	;;
 	doom.d/init.el)
-		FILE="$HOME/.doom.d/init.el"
+		FILE_PATH="$HOME/.doom.d/init.el"
 	;;
 	dunst)
-		FILE="$HOME/.config/dunst/dunstrc"
+		FILE_PATH="$HOME/.config/dunst/dunstrc"
 	;;
 	dwm)
-		FILE="$HOME/.config/dwm/config.h"
+		FILE_PATH="$HOME/dotfiles/dwm/config.h"
 	;;
 	dwmblocks)
 
-		FILE="$HOME/.config/dwmblocks/config.h"
+		FILE_PATH="$HOME/dotfiles/dwmblocks/config.h"
 	;;
 
 	emacs.d/init.el)
-		FILE="$HOME/.emacs.d/init.el"
+		FILE_PATH="$HOME/.emacs.d/init.el"
 	;;
 	herbstluftwm)
-		FILE="$HOME/.config/herbstluftwm/autostart"
+		FILE_PATH="$HOME/.config/herbstluftwm/autostart"
 	;;
 	i3)
-		FILE="$HOME/.i3/config"
+		FILE_PATH="$HOME/.i3/config"
 	;;
 	neovim)
-		FILE="$HOME/.config/nvim/init.vim"
+		FILE_PATH="$HOME/.config/nvim/init.vim"
 	;;
 	polybar)
-		FILE="$HOME/.config/polybar/config.ini"
+		FILE_PATH="$HOME/.config/polybar/config.ini"
 	;;
 	qtile)
-		FILE="$HOME/.config/qtile/config.py"
+		FILE_PATH="$HOME/.config/qtile/config.py"
 	;;
 	st)
-		FILE="$HOME/.config/st/config.h"
+		FILE_PATH="$HOME/.config/st/config.h"
 	;;
 	stumpwm)
-		FILE="$HOME/.config/stumpwm/config"
+		FILE_PATH="$HOME/.config/stumpwm/config"
 	;;
 	surf)
-		FILE="$HOME/.config/surf/config.h"
+		FILE_PATH="$HOME/.config/surf/config.h"
 	;;
 	sxhkd)
-		FILE="$HOME/.config/sxhkd/sxhkdrc"
+		FILE_PATH="$HOME/.config/sxhkd/sxhkdrc"
 	;;
 	tabbed)
-		FILE="$HOME/tabbed-distrotube/config.h"
+		FILE_PATH="$HOME/tabbed-distrotube/config.h"
 	;;
 	termite)
-		FILE="$HOME/.config/termite/config"
+		FILE_PATH="$HOME/.config/termite/config"
 	;;
 	vifm)
-		FILE="$HOME/.config/vifm/vifmrc"
+		FILE_PATH="$HOME/.config/vifm/vifmrc"
 	;;
 	vim)
-		FILE="$HOME/.vimrc"
+		FILE_PATH="$HOME/.vimrc"
 	;;
 	vimb)
-		FILE="$HOME/.config/vimb/config"
+		FILE_PATH="$HOME/.config/vimb/config"
 	;;
 	xmobar)
-		FILE="$HOME/.config/xmobar/xmobarrc2"
+		FILE_PATH="$HOME/.config/xmobar/xmobarrc2"
 	;;
 	xmonad)
-		FILE="$HOME/.xmonad/xmonad.hs"
+		FILE_PATH="$HOME/.xmonad/xmonad.hs"
 	;;
 	xresources)
-		FILE="$HOME/.config/X11/xresources"
+		FILE_PATH="$HOME/.config/X11/xresources"
 	;;
 	zsh)
-		FILE="$HOME/.config/zsh/.zshrc"
+		FILE_PATH="$HOME/.config/zsh/.zshrc"
 	;;
 	ranger)
-		FILE="$HOME/.config/ranger/rc.conf"
+		FILE_PATH="$HOME/.config/ranger/rc.conf"
 	;;
 	qutebrowser)
-		FILE="$HOME/.config/qutebrowser/config.py"
+		FILE_PATH="$HOME/.config/qutebrowser/config.py"
 	;;
 	zathura)
-		FILE="$HOME/.config/zathura/zathurarc"
+		FILE_PATH="$HOME/.config/zathura/zathurarc"
 	;;
 	spectrwm)
-		FILE="$HOME/config/.spectrwm.conf"
+		FILE_PATH="$HOME/config/.spectrwm.conf"
 	;;
 	lf)
-		FILE="$HOME/.config/lf/lfrc"
+		FILE_PATH="$HOME/.config/lf/lfrc"
 		;;
 	mpd)
-		FILE="$HOME/.config/mpd/mpd.conf"
+		FILE_PATH="$HOME/.config/mpd/mpd.conf"
 		;;
 	ncmpcpp)
-		FILE="$HOME/.config/ncmpcpp/config"
+		FILE_PATH="$HOME/.config/ncmpcpp/config"
 		;;
 	dmenu)
-		FILE="$HOME/.config/dmenu/config.h"
+		FILE_PATH="$HOME/.config/dmenu/config.h"
 		;;
 	newsboat)
-		FILE="$HOME/.config/newsboat/config"
+		FILE_PATH="$HOME/.config/newsboat/config"
 		;;
 	url)
-		FILE="$HOME/.config/newsboat/urls"
+		FILE_PATH="$HOME/.config/newsboat/urls"
 		;;
 
 	fonts)
-		FILE="$HOME/.config/fontconfig/fonts.conf"
+		FILE_PATH="$HOME/.config/fontconfig/fonts.conf"
 		;;
 	mpv)
-		FILE="$HOME/.config/mpv/mpv.conf"
+		FILE_PATH="$HOME/.config/mpv/mpv.conf"
 
 		;;
 	transmission)
-		FILE="$HOME/.config/transmission-remote-cli/settings.cfg"
+		FILE_PATH="$HOME/.config/transmission-remote-cli/settings.cfg"
 
 		;;
 	picom)
-		FILE="$HOME/.config/picom.conf"
+		FILE_PATH="$HOME/.config/picom.conf"
 		;;
 	Tmux)
-		FILE="$HOME/.config/tmux/tmux.conf"
+		FILE_PATH="$HOME/.config/tmux/tmux.conf"
 		;;
 	snippets)
-		FILE="$HOME/.config/nvim/my_snippets.vim"
+		FILE_PATH="$HOME/.config/nvim/my_snippets.vim"
 		;;
 	starship)
-		FILE="$HOME/.config/starship.toml"
+		FILE_PATH="$HOME/.config/starship.toml"
 		;;
 		xinitrc)
-			FILE="$HOME/.config/X11/xinitrc"
+			FILE_PATH="$HOME/.config/X11/xinitrc"
 			;;
 		xprofile)
-			FILE="$HOME/.config/X11/xprofile"
+			FILE_PATH="$HOME/.config/X11/xprofile"
 			;;
 		goneovim)
-			FILE="$HOME/.goneovim/setting.toml"
+			FILE_PATH="$HOME/.goneovim/setting.toml"
 			;;
 		kitty)
-			FILE="$HOME/dotfiles/.config/kitty/kitty.conf"
+			FILE_PATH="$HOME/.config/kitty/kitty.conf"
 			;;
 	 install.sh)
-			FILE="$HOME/dotfiles/install.sh"
+			FILE_PATH="$HOME/install.sh"
 			;;
    zprofile)
-		FILE="$HOME/.config/zsh/.zprofile"
+		FILE_PATH="$HOME/.config/zsh/.zprofile"
     ;;
+   statusbar)
+		FILE_PATH="$HOME/.local/bin/statusbar"
+    ;;
+
+
 	*)
 		exit 1
 	;;
 esac
 
-   fullPath=$(readlink -f "$FILE")
+   fullPath=$(readlink -f "$FILE_PATH")
    dir=$(dirname $fullPath)
    cd $dir;
-   alacritty -e nvim "$FILE"
+
+   if [[ $FILE == "statusbar" ]] ; then
+      cd $fullPath
+      alacritty -e nvim  -c "NvimTreeToggle" 
+   else
+      st -e nvim "$FILE_PATH"
+   fi
+
 

@@ -124,3 +124,6 @@ if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integr
 _SILENT_JAVA_OPTIONS="$_JAVA_OPTIONS"
 unset _JAVA_OPTIONS
 alias java='java "$_SILENT_JAVA_OPTIONS"'
+
+
+export PATH="/home/shahid/opt/zig-linux-x86_64-0.9.1:$PATH"
