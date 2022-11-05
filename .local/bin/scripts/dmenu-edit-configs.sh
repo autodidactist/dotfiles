@@ -253,7 +253,7 @@ esac
       cd $fullPath
       alacritty -e nvim  -c "NvimTreeToggle" 
    else
-      st -e nvim "$FILE_PATH"
+      alacritty -e nvim "$FILE_PATH"
    fi
 
 

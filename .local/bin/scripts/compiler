@@ -39,7 +39,10 @@ case "$ext" in
 	fsx) fsharpc  --nologo    "$file" -o "$base"  && mono "$base";;
 	ml)ocamlopt "$file" -o "$base" && "$base";;
 	go) go build  "$file" && "$base";;
-	h) echo "aki1012" | sudo make install ;;
+
+	h)
+		[ $base=="config" ] && (echo "aki1012" | sudo -S make install)  || exit;;
+
 	v) v "$file" -o "$base" && "$base" ;;
 	java) javac -d classes "$file" && java -cp classes "${1%.*}" ;;
 	# nim) nim --verbosity:0 --hints:off  c "$file" && "$base";;

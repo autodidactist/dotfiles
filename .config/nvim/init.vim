@@ -297,7 +297,9 @@ nmap <silent><c--> :ZoomOut<CR>
 nmap <silent><A-S-k> :ZoomIn<CR>
 nmap <silent><A-S-j> :ZoomOut<CR>
 
-set guifont=SF\ Mono:h10
+" set guifont=SF\ Mono:h10
+set guifont=SauceCodePro\ Nerd\ Font:h12
+
 
 nmap <silent> <C-o> : call ToggleDefault() \| hi NonText guifg=bg<CR>
 colorscheme gruvbox-material
@@ -333,3 +335,5 @@ nmap <space>v : Telescope vim_options <CR>
 
 "Statusbar
 " source ~/.config/nvim/statusline.vim
+
+
