@@ -1,0 +1,31 @@
+#!/bin/sh
+#WINIT_HIDPI_FACTOR=1
+#WINIT_X11_SCALE_FACTOR=1
+# xwallpaper --zoom ~/.config/wall.jpg &
+
+# sudo hwclock -u -s
+remaps &	# Remap caps key esc & speedy keys
+sxhkd -m -1 & 	#(To escape xbind keys)
+# picom -b &
+picom --backend glx --vsync  --blur-method dual_kawase --blur-strength 8 -b
+# picom --experimental-backends --blur-method box --blur-strength "2" -b
+pamixer --set-volume 75 &
+xbacklight -set 12 &
+dwmblocks &
+#flashfocus &
+pipewire &
+pipewire-pulse &
+pipewire-media-session &
+sudo wifi off &
+sudo bluetooth off &
+sudo mkdir /run/user/1000 &
+sudo chown shahid -R /run/user/1000/  &
+sudo mount /dev/nvme0n1p1 mnt/HDD &
+sudo mount /dev/nvme0n1p5 mnt/HDD2 &
+sudo mount /dev/nvme0n1p13 mnt/HDD3 &
+sudo hwclock --hctosys &
+emacs --daemon &
+pamixer -t &
+setbg & 	#(Pywal and wall)
+
+# sudo  ntpdate -u in.pool.ntp.org  &

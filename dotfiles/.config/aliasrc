@@ -1,0 +1,8 @@
+alias \
+ni=/home/shahid/opt/nvui-linux-x64/bin/nvui \
+brave=/home/shahid/opt/brave/brave \
+xr=xbps-install -R binpkgs \
+yt="ytfzf -t" \
+ytp=yt-dlp -o "%(playlist_index)02d - %(title)s.%(ext)s" \
+ytf=yt-dlp -F  \
+rn=ranger . \
