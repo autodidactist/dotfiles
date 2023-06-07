@@ -1,0 +1,16 @@
+#!/bin/sh
+
+light="$(xbacklight | cut -d "." -f 1)"
+
+# if [ "$light" -gt "50" ]; then
+# 	icon="🌞"
+# elif [ "$light" -gt "30" ]; then
+# 	icon="☀️"
+# elif [ "$light" -gt "20" ]; then
+# 	icon="🌤️"
+# else
+        icon="🔆" 
+# fi
+
+echo "$icon[$light%] "
+# echo "$icon"

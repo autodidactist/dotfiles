@@ -1,0 +1,39 @@
+#!/bin/bash
+
+
+case $BLOCK_BUTTON in
+	1) "$TERMINAL" -e nmtui; pkill -RTMIN+4 dwmblocks ;;
+	3) notify-send "🌐 Internet module" "\- Click to connect
+🚫: wifi disabled
+📡: no wifi connection
+📶: wifi connection with quality
+😒: service provider fucked up
+" ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+if grep -xq 'up' /sys/class/net/w*/operstate 2>/dev/null ; then
+	wifi_val="$(awk '/^\s*w/ { print int($3 * 100 / 70) }' /proc/net/wireless)"
+elif grep -xq 'down' /sys/class/net/w*/operstate 2>/dev/null ; then
+	grep -xq '0x1003' /sys/class/net/w*/flags 
+fi
+
+
+wifi_status=$(wifi | grep -oE '\b\w{2,3}\b')
+
+if [[ $wifi_val == "" ]]; then
+	if [[ $wifi_status == "off" ]]; then
+			printf "%s%s%s\n" "📶[🚫]"\
+			"$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)"\
+			"$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"
+
+	elif [[ $wifi_status == "on" ]]; then
+			printf "%s%s%s\n" "📶[😒]"\
+			"$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)"\
+			"$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"
+	fi
+else
+		printf "%s%s%s\n" "📶[$wifi_val%]"\
+		"$(sed "s/down/❎/;s/up/🌐/" /sys/class/net/e*/operstate 2>/dev/null)"\
+		"$(sed "s/.*/🔒/" /sys/class/net/tun*/operstate 2>/dev/null)"
+fi
